@@ -22,6 +22,7 @@ const NewHome = (props) => {
     // document.body.scrollTop = 0;
     // props.getPost()
   }, []);
+
   return (
     <div>
       {/* <Head>
@@ -37,17 +38,17 @@ const NewHome = (props) => {
           color: "white",
         }}
       /> */}
-      <MainContent>
+      <MainContent data={props.data}>
         {/* <FirstSection />
         <SecondSection /> */}
-        <ThirdSection />
-        <FourthSection />
-        <FifthSection />
-        <SixthSection />
-        <SeventhSection />
-        <EightSection />
-        <NinethSection />
-        <TenthSection />
+        <ThirdSection data={props.data[2]} />
+        <FourthSection data={props.data[3]} />
+        <FifthSection data={props.data[4]} />
+        <SixthSection data={props.data[5]} />
+        <SeventhSection data={props.data[6]} />
+        <EightSection data={props.data[7]} />
+        <NinethSection data={props.data[8]} />
+        <TenthSection data={props.data[9]} />
       </MainContent>
       {/* <FirstSection /> */}
       <PTEFooter />

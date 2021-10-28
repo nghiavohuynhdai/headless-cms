@@ -45,8 +45,8 @@ const MainContent = (props) => {
             color: "white",
           }}
         />
-        <FirstSection />
-        <SecondSection />
+        <FirstSection data={props.data[0]}/>
+        <SecondSection data={props.data[1]}/>
       </section>
       <div>{props.children}</div>
     </div>
