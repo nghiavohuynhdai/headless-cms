@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "1140px",
     width: "100%",
@@ -72,14 +72,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FirstSection = () => {
+const FirstSection = (props) => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <div>
-        <h1>PTE Academic preparation</h1>
+        {/* <h1>PTE Academic preparation</h1>
         <h1>made easier for you</h1>
-        <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2>
+        <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2> */}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: props.data.saveContent,
+          }}
+        ></div>
       </div>
       <div className={classes.signUpContainer}>
         <Link href="/platform/">  
