@@ -5,6 +5,7 @@ import feature1 from "../../assets/img/new-home/Practice-with-repeated.png";
 import feature2 from "../../assets/img/new-home/Access-yourself-with.png";
 import feature3 from "../../assets/img/new-home/Self-study-with-AI.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
+import { element } from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
@@ -68,24 +69,33 @@ const ThirdSection = (props) => {
   const classes = useStyles();
   const data = props.data.innerBlocks;
   let gridList = [];
-  const imageList = [feature1, feature2, feature3];
-  for (let block in data) {
-    if (data[block].name == "core/columns") {
-      gridList = data[block].innerBlocks.map((element, index) => {
+  for (let i in data) {
+    if (data[i].name == "core/columns") {
+      gridList = data[i].innerBlocks.map((block) => {
+        let columnList = block.innerBlocks.map((element) => {
+          if (element.name == "core/image") {
+            return (
+              <img src={element.attributes.url} alt={element.attributes.alt} />
+            );
+          } else {
+            return (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: element.saveContent,
+                }}
+              ></div>
+            );
+          }
+        });
         return (
           <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
-            <img src={imageList[index]} alt="feature-1" />
-            <div
-              dangerouslySetInnerHTML={{
-                __html: element.saveContent,
-              }}
-            ></div>
+            {columnList}
           </Grid>
         );
       });
     }
   }
-  
+
   return (
     <div className={`${classes.root} ${classes.container}`}>
       {/* <div className={classes.sectionHeader}>
