@@ -73,7 +73,7 @@ const SixthSection = (props) => {
             __html: props.data.saveContent,
           }}></div>
         </div>
-        <CustomizedTabs value={value} handleChange={handleChange} />
+        <CustomizedTabs value={value} handleChange={handleChange} data={props.data[1].innerBlocks} />
         {value === 0 && (
           <FadeIn transitionDuration={800}>
             <img
