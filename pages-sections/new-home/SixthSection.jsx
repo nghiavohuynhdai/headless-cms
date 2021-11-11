@@ -74,7 +74,7 @@ const SixthSection = (props) => {
         <div className={classes.sectionHeader}>
           {blockList[0]}
         </div>
-        <CustomizedTabs value={value} handleChange={handleChange} />
+        <CustomizedTabs value={value} handleChange={handleChange} data={props.data[1].innerBlocks} />
         {value === 0 && (
           <FadeIn transitionDuration={800}>
             <img
