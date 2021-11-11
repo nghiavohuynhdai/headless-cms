@@ -77,16 +77,16 @@ const FirstSection = (props) => {
 
   return (
     <div className={classes.root}>
-      <div>
-        {/* <h1>PTE Academic preparation</h1>
+      {/* <div>
+        <h1>PTE Academic preparation</h1>
         <h1>made easier for you</h1>
-        <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2> */}
-        <div
+        <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2>
+      </div> */}
+      <div
           dangerouslySetInnerHTML={{
             __html: props.data.saveContent,
           }}
         ></div>
-      </div>
       <div className={classes.signUpContainer}>
         <Link href="/platform/">  
           <Button className={classes.signUpButton}>GET STARTED</Button>

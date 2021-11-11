@@ -13,7 +13,6 @@ import Slide from "@material-ui/core/Slide";
 import Fade from "@material-ui/core/Fade";
 import Link from "next/link";
 
-
 const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     width: "100%",
     [theme.breakpoints.down("sm")]: {
-      padding: "30px 0px"
+      padding: "30px 0px",
     },
   },
   sectionHeader: {
@@ -118,11 +117,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       left: "50%",
     },
-    overflowX: "hidden"
+    overflowX: "hidden",
   },
 }));
 
-const FourthSection = () => {
+const FourthSection = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -136,15 +135,20 @@ const FourthSection = () => {
           </Slide>
         </Grid>
         <Grid item xs={12} md={5} className={classes.gridContent}>
-          <h2>Complete mock tests and check your scores with detailed analysis.</h2>
+          {/* <h2>Complete mock tests and check your scores with detailed analysis.</h2>
           <p>
             A score report will be automatically generated after each exam attemp which clearly displays
             communicative, enabling as well as the overall score, thus help users identify strengths 
             and tackle weaknesses. This mock exam's structure is similar to the actual pte test.
-          </p>
-          <Link href='/platform'>
+          </p> */}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: props.data.saveContent,
+            }}
+          ></div>
+          <Link href="/platform">
             <Button className={classes.signUpButton}>HOW IT WORKS</Button>
-          </Link>  
+          </Link>
         </Grid>
       </Grid>
     </div>
