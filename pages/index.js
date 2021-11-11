@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Router from "next/router";
-  import Home from "./home";
+import Home from "./home";
 import { getHomePageAPI } from "../lib/api";
 
 export default function Index({ posts }) {

@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,6 +75,8 @@ const useStyles = makeStyles((theme) => ({
 
 const FirstSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks;
+  const blockList = handleData(data)
 
   return (
     <div className={classes.root}>
@@ -82,11 +85,7 @@ const FirstSection = (props) => {
         <h1>made easier for you</h1>
         <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2>
       </div> */}
-      <div
-          dangerouslySetInnerHTML={{
-            __html: props.data.saveContent,
-          }}
-        ></div>
+      {blockList[0]}
       <div className={classes.signUpContainer}>
         <Link href="/platform/">  
           <Button className={classes.signUpButton}>GET STARTED</Button>

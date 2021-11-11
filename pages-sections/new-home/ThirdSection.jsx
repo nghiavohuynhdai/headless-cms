@@ -6,11 +6,12 @@ import feature2 from "../../assets/img/new-home/Access-yourself-with.png";
 import feature3 from "../../assets/img/new-home/Self-study-with-AI.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
 import { element } from "prop-types";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     [theme.breakpoints.down("sm")]: {
       marginTop: 60,
       padding: "0px 30px",
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
 const ThirdSection = (props) => {
   const classes = useStyles();
   const data = props.data.innerBlocks;
-  let gridList = [];
+  /* let gridList = [];
   for (let i in data) {
     if (data[i].name == "core/columns") {
       gridList = data[i].innerBlocks.map((block) => {
@@ -94,7 +95,21 @@ const ThirdSection = (props) => {
         );
       });
     }
-  }
+  } */
+  const blockList = data.map((block) => {
+    if (block.name == "core/group") {
+      return handleData(block.innerBlocks);
+    } else if (block.name == "core/columns") {
+      const columns = block.innerBlocks.map((column) => {
+        return (
+          <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
+            {handleData(column.innerBlocks)}
+          </Grid>
+        );     
+      });
+      return columns
+    }
+  });
 
   return (
     <div className={`${classes.root} ${classes.container}`}>
@@ -102,12 +117,13 @@ const ThirdSection = (props) => {
         <h2>WHAT'S IN IT FOR YOU?</h2>
         <h3>This PTE tool will help you</h3>
       </div> */}
-      <div
+      {/* <div
         className={classes.sectionHeader}
         dangerouslySetInnerHTML={{
           __html: data[0].saveContent,
         }}
-      ></div>
+      ></div> */}
+      <div className={classes.sectionHeader}>{blockList[0]}</div>
       <Grid container>
         {/* <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
           <img src={feature1} alt="feature-1" />
@@ -137,7 +153,8 @@ const ThirdSection = (props) => {
             algorithm.
           </p>
         </Grid> */}
-        {gridList}
+        {blockList[1]}
+        {/* {gridList} */}
       </Grid>
     </div>
   );

@@ -9,6 +9,7 @@ import FadeIn from "react-fade-in";
 import dashboard from "../../assets/img/new-home/demodashboard_new.jpg";
 import questionbank from "../../assets/img/new-home/demoquestionbank.png";
 import mocktest from "../../assets/img/new-home/demomocktest_new.jpg";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   sectionHeader: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    textAlign: "center",
     justifyContent: "center",
     "& img": {
       maxWidth: 400,
@@ -57,21 +58,21 @@ const useStyles = makeStyles(theme => ({
 const SixthSection = (props) => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-
+  const data = props.data.innerBlocks;
+  const blockList = handleData(data)
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log(data)
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        {/* <div className={classes.sectionHeader}>
+          <h2>UPDATE</h2>
+          <h3>Here is the sneak peak of our Magic platform</h3>
+        </div> */}
         <div className={classes.sectionHeader}>
-          {/* <h2>UPDATE</h2>
-          <h3>Here is the sneak peak of our Magic platform</h3> */}
-          <div
-          dangerouslySetInnerHTML={{
-            __html: props.data.saveContent,
-          }}></div>
+          {blockList[0]}
         </div>
         <CustomizedTabs value={value} handleChange={handleChange} />
         {value === 0 && (
