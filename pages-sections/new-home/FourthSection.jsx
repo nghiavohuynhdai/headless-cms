@@ -130,10 +130,8 @@ const useStyles = makeStyles((theme) => ({
 const FourthSection = (props) => {
   const classes = useStyles();
   const data = props.data.innerBlocks[0];
-  console.log(data);
   const imageList = data.innerBlocks[0].innerBlocks;
   const contentList = handleData(data.innerBlocks[1].innerBlocks);
-  console.log(contentList)
 
   return (
     <div className={classes.root}>

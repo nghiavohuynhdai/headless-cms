@@ -11,7 +11,7 @@ import questionbank from "../../assets/img/new-home/demoquestionbank.png";
 import mocktest from "../../assets/img/new-home/demomocktest_new.jpg";
 import handleData from "../../lib/handleData";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
     position: "relative",
@@ -59,11 +59,11 @@ const SixthSection = (props) => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const data = props.data.innerBlocks;
-  const blockList = handleData(data)
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(data)
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -72,10 +72,14 @@ const SixthSection = (props) => {
           <h3>Here is the sneak peak of our Magic platform</h3>
         </div> */}
         <div className={classes.sectionHeader}>
-          {blockList[0]}
+          {handleData(data[0].innerBlocks)}
         </div>
-        <CustomizedTabs value={value} handleChange={handleChange} data={props.data[1].innerBlocks} />
-        {value === 0 && (
+        <CustomizedTabs
+          value={value}
+          handleChange={handleChange}
+          data={data[1].innerBlocks}
+        />
+        {/* {value === 0 && (
           <FadeIn transitionDuration={800}>
             <img
               className={classes.imageDemo}
@@ -97,7 +101,20 @@ const SixthSection = (props) => {
           <FadeIn transitionDuration={800}>
             <img className={classes.imageDemo} src={mocktest} alt="mocktest" />
           </FadeIn>
-        )}
+        )} */}
+        {data[2].innerBlocks.map((image, index) => {
+          return (
+            value === index && (
+              <FadeIn transitionDuration={800}>
+                <img
+                  className={classes.imageDemo}
+                  src={image.attributes.url}
+                  alt={image.attributes.atl}
+                />
+              </FadeIn>
+            )
+          );
+        })}
       </div>
     </div>
   );
