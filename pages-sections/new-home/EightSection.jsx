@@ -19,7 +19,7 @@ import jondoe from "../../assets/img/new-home/jondoe.jpeg";
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     [theme.breakpoints.down("sm")]: {
       marginTop: 60
     },

@@ -12,7 +12,7 @@ import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSection
 const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     [theme.breakpoints.down("sm")]: {
       marginTop: 50,
     },
@@ -21,9 +21,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 100,
     display: "flex",
     flexDirection: "column",
-    textAlign: "center",
     alignItems: "center",
-    // justifyContent: "center",
+    justifyContent: "center",
     [theme.breakpoints.down("sm")]: {
       marginBottom: 60,
     },

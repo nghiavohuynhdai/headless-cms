@@ -9,7 +9,7 @@ import Link from "next/link";
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
   root: {
-    padding: "120px 0px",
+    padding: "100px 0px",
     backgroundColor: "rgb(246, 251, 249)",
     backgroundImage:
       "url(https://react-next-landing.redq.io/_next/static/images/map-18b073154fe6a34a0819d1c79f404288.png)",

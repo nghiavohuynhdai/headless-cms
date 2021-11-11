@@ -10,7 +10,7 @@ import Link from "next/link";
 const useStyles = makeStyles(theme=>({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     textAlign: "center",
     maxWidth: "1140px",
     margin: "0 auto",

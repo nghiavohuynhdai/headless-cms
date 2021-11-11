@@ -5,7 +5,6 @@ import feature1 from "../../assets/img/new-home/Practice-with-repeated.png";
 import feature2 from "../../assets/img/new-home/Access-yourself-with.png";
 import feature3 from "../../assets/img/new-home/Self-study-with-AI.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
-import { element } from "prop-types";
 import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles((theme) => ({
@@ -117,12 +116,6 @@ const ThirdSection = (props) => {
         <h2>WHAT'S IN IT FOR YOU?</h2>
         <h3>This PTE tool will help you</h3>
       </div> */}
-      {/* <div
-        className={classes.sectionHeader}
-        dangerouslySetInnerHTML={{
-          __html: data[0].saveContent,
-        }}
-      ></div> */}
       <div className={classes.sectionHeader}>{blockList[0]}</div>
       <Grid container>
         {/* <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
@@ -138,23 +131,20 @@ const ThirdSection = (props) => {
           <img src={feature2} alt="feature-2" />
           <h4>Access yourself with Practice Tests</h4>
           <p>
-            Magic PTE Mock Tests are designed to simulate te actual PTE Exam
-            testing experience to help users familiarize themselves with the
-            test patterns and identify weaknesses using score reports.
+            Magic PTE Mock Tests are designed to simulate te actual PTE Exam testing experience 
+            to help users familiarize themselves with the test patterns and identify weaknesses using score reports.
           </p>
         </Grid>
         <Grid item xs={12} md={4} sm={12} className={classes.gridItem}>
           <img src={feature3} alt="feature-3" />
           <h4>Self-study with AI scoring</h4>
           <p>
-            This Practice Test platform has been designed with AI (Artificial
-            Intelligence) feature. AI scoring means that test takers will be
-            marked by the automated system which mimics the real scoring
-            algorithm.
+            This Practice Test platform has been designed with AI (Artificial Intelligence) feature.
+            AI scoring means that test takers will be marked by the automated system which mimics the real
+            scoring algorithm.
           </p>
         </Grid> */}
         {blockList[1]}
-        {/* {gridList} */}
       </Grid>
     </div>
   );
