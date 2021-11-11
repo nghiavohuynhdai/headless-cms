@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SixthSection = () => {
+const SixthSection = (props) => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
@@ -66,8 +66,12 @@ const SixthSection = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.sectionHeader}>
-          <h2>UPDATE</h2>
-          <h3>Here is the sneak peak of our Magic platform</h3>
+          {/* <h2>UPDATE</h2>
+          <h3>Here is the sneak peak of our Magic platform</h3> */}
+          <div
+          dangerouslySetInnerHTML={{
+            __html: props.data.saveContent,
+          }}></div>
         </div>
         <CustomizedTabs value={value} handleChange={handleChange} />
         {value === 0 && (
