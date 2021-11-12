@@ -8,6 +8,7 @@ import answer from "../../assets/img/new-home/real-answer.png";
 import scoring from "../../assets/img/new-home/AI-Scoring.png";
 import coaching from "../../assets/img/new-home/PTE-coaching.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 100,
     display: "flex",
     flexDirection: "column",
+    textAlign: "center",
     alignItems: "center",
     justifyContent: "center",
     [theme.breakpoints.down("sm")]: {
@@ -110,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
 const FifthSection = (props) => {
   const classes = useStyles();
   const data = props.data.innerBlocks;
-  let gridList = [];
+  /* let gridList = [];
   for (let i in data) {
     if (data[i].name == "core/columns") {
       gridList = data[i].innerBlocks.map((block) => {
@@ -136,7 +138,21 @@ const FifthSection = (props) => {
         );
       });
     }
-  }
+  } */
+  const blockList = data.map((block) => {
+    if (block.name == "core/group") {
+      return handleData(block.innerBlocks);
+    } else if (block.name == "core/columns") {
+      const columns = block.innerBlocks.map((column) => {
+        return (
+          <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
+            {handleData(column.innerBlocks)}
+          </Grid>
+        );
+      });
+      return columns;
+    }
+  });
 
   return (
     <div className={`${classes.root} ${classes.container}`}>
@@ -144,12 +160,13 @@ const FifthSection = (props) => {
         <h2>TOP-NOTCH FEATURES</h2>
         <h3>to help you succeed with PTE Academic</h3>
       </div> */}
-      <div
+      {/* <div
         className={classes.sectionHeader}
         dangerouslySetInnerHTML={{
           __html: data[0].saveContent,
         }}
-      ></div>
+      ></div> */}
+      <div className={classes.sectionHeader}>{blockList[0]}</div>
       <Grid container>
         {/* <Grid item xs={12} sm={6} md={4} className={classes.gridItem}>
           <img src={template} alt="light" />
@@ -211,7 +228,7 @@ const FifthSection = (props) => {
             </p>
           </div>
         </Grid> */}
-        {gridList}
+        {blockList[1]}
       </Grid>
     </div>
   );
