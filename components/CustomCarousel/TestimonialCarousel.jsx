@@ -97,7 +97,7 @@ const TestimonialCarousel = (props) => {
             <h3>{item.overview}</h3>
             <p className={classes.userFeedback}>{item.feedback}</p>
             <div className={classes.userStyle}>
-              <img src={item.avatar} />
+              <img src={item.avatar.url} alt={item.avatar.alt} />
               <div>
                 <p className={classes.userName}>{item.name}</p>
                 <p className={classes.userRole}>{item.userRole}</p>
