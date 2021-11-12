@@ -91,17 +91,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SeventhSection = () => {
+const SeventhSection = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <div className={`${classes.container} ${classes.sectionContent}`}>
         <img className={classes.imageLogos} src={logoclient} alt="logoclient" />
         <div className={classes.innerContent}>
-          <h3>Start your stress-free PTE preparation today.</h3>
+          {/* <h3>Start your stress-free PTE preparation today.</h3>
           <p>
             You are just one step closer to your dream. Master PTE with this powerful tool.
-          </p>
+          </p> */}
+          {handleData(data[0].innerBlocks)}
           <Link href='/platform' >
             <Button className={classes.signUpButton}>Get Started</Button>
           </Link>
