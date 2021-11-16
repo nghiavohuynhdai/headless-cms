@@ -9,7 +9,7 @@ export default function Index({ posts }) {
   // };
 
   let i = 0;
-  while (posts[i].title != "Landing Page") {
+  while (posts[i].title != "Home Page") {
     i++;
   }
   const blocksJson = JSON.parse(posts[i].blocksJSON);
