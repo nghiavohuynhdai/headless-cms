@@ -41,7 +41,7 @@ export default function CustomizedTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const tabs = props.data;
   return (
     <div className={classes.root}>
       <StyledTabs
@@ -50,9 +50,12 @@ export default function CustomizedTabs(props) {
         aria-label="styled tabs example"
         centered
       >
-        <StyledTab label={props.data[0].attributes.content} />
+        {tabs.map(eachTab =>(
+           <StyledTab label={eachTab.attributes.content}/>
+        ))}
+        {/* <StyledTab label={props.data[0].attributes.content} />
         <StyledTab label={props.data[1].attributes.content} />
-        <StyledTab label={props.data[2].attributes.content} />
+        <StyledTab label={props.data[2].attributes.content} /> */}
       </StyledTabs>
     </div>
   );

@@ -5,11 +5,12 @@ import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSection
 import { Grid } from "@material-ui/core";
 import logoclient from "../../assets/img/new-home/logoclients.png";
 import Link from "next/link";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
   root: {
-    padding: "100px 0px",
+    padding: "120px 0px",
     backgroundColor: "rgb(246, 251, 249)",
     backgroundImage:
       "url(https://react-next-landing.redq.io/_next/static/images/map-18b073154fe6a34a0819d1c79f404288.png)",
@@ -91,18 +92,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SeventhSection = () => {
+const SeventhSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks[0];
+  const imageList = data.innerBlocks[0].innerBlocks;
+  const contentList = handleData(data.innerBlocks[1].innerBlocks)
+
   return (
     <div className={classes.root}>
       <div className={`${classes.container} ${classes.sectionContent}`}>
-        <img className={classes.imageLogos} src={logoclient} alt="logoclient" />
+        <img
+          className={classes.imageLogos}
+          src={imageList[0].attributes.url}
+          alt={imageList[0].attributes.url}
+        />
         <div className={classes.innerContent}>
-          <h3>Start your stress-free PTE preparation today.</h3>
+          {/* <h3>Start your stress-free PTE preparation today.</h3>
           <p>
             You are just one step closer to your dream. Master PTE with this powerful tool.
-          </p>
-          <Link href='/platform' >
+          </p> */}
+          {contentList}
+          <Link href="/platform">
             <Button className={classes.signUpButton}>Get Started</Button>
           </Link>
         </div>

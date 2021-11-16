@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 const FirstSection = (props) => {
   const classes = useStyles();
   const data = props.data.innerBlocks;
-  const blockList = handleData(data)
+  const blockList = data.map(block => {return handleData(block.innerBlocks)})
 
   return (
     <div className={classes.root}>
