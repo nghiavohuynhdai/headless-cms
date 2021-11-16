@@ -190,7 +190,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const EightSection = () => {
+const EightSection = (props) => {
   const classes = useStyles();
   const breakPoints = [
     {
@@ -200,7 +200,7 @@ const EightSection = () => {
       width: 550, itemsToShow:2, itemsToScroll: 2, pagination: false
     },
   ]
-  const components = [
+  /* const components = [
     {
       overview: "Closed to the real test",
       feedback:
@@ -249,13 +249,29 @@ const EightSection = () => {
     //   name: "Jeny Doe",
     //   userRole: "Manager of HP .Co",
     // },
-  ];
+  ]; */
+  const data = props.data.innerBlocks;
+  const components = data[1].innerBlocks.map(user => {
+    const info = user.innerBlocks
+    return {
+      overview: info[0].attributes.content,
+      feedback: info[1].attributes.content,
+      avatar: {url: info[2].attributes.url,
+               alt: info[2].attributes.alt },
+      name: info[3].attributes.content,
+      userRole: info[4].attributes.content
+    }
+  })
+
   return (
     <div className={`${classes.root} ${classes.container}`}>
       <div className={classes.sectionHeader}>
-        <h2>TESTIMONIAL</h2>
-        <h3>What our happy students say about us</h3>
+        {/* <h2>TESTIMONIAL</h2>
+        <h3>What our happy students say about us</h3> */}
         {/* <TestimonialCarousel components={components} itemPerPage={2} /> */}
+
+        <div dangerouslySetInnerHTML={{__html: data[0].innerBlocks[0].saveContent}}></div>
+
         <TestimonialCarousel components={components} breakPoints={breakPoints} />
       </div>
     </div>

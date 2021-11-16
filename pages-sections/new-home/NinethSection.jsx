@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
 import Link from "next/link";
 
-const useStyles = makeStyles(theme=>({
+const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
     marginTop: 100,
@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme=>({
     maxWidth: "1140px",
     margin: "0 auto",
     [theme.breakpoints.down("sm")]: {
-      margin: "60px 30px 0 30px"
-    },   
+      margin: "60px 30px 0 30px",
+    },
   },
   sectionHeader: {
     textAlign: "center",
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme=>({
       lineHeight: 1.67,
     },
   },
-  accordionContainer:{
+  accordionContainer: {
     marginTop: "60px",
     display: "flex",
     alignItems: "center",
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme=>({
     width: "100%",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
-    },    
+    },
   },
   exploreButton: {
     backgroundColor: "#fadb06",
@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme=>({
     },
   },
 }));
-const collapses = [
+/* const collapses = [
     {   title: "What is PTE Academic and why do I need it?",
         content: "Our Customer Experience Team is available 7 days a week and we offer 2 ways to get in contact. Email and Chat . We try to reply quickly, so you need not to wait too long for a response!."
     },
@@ -79,24 +79,37 @@ const collapses = [
     {   title: "Where can I book my PTE Academic test?",
         content: "We are giving the update of this theme continuously . You will receive an email Notification when we push an update. Always try to be updated with us ."
     },
-]
+] */
 
-const NinethSection = () => {
+const NinethSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks;
+  const collapses = data[1].innerBlocks.map((user) => {
+    const info = user.innerBlocks;
+    return {
+      title: info[0].attributes.content,
+      content: info[1].attributes.content,
+    };
+  });
+
   return (
     <div className={classes.root}>
-        <div className={classes.sectionHeader}>
+      {/* <div className={classes.sectionHeader}>
             <h2>FREQUENTLY ASKED QUESTIONS</h2>
             <h3>Want to ask something from us?</h3>
+        </div> */}
+      <div
+        className={classes.sectionHeader}
+        dangerouslySetInnerHTML={{ __html: data[0].innerBlocks[0].saveContent }}
+      ></div>
+      <div className={classes.accordionContainer}>
+        <Accordion collapses={collapses} />
+      </div>
+      <Link href="/platform">
+        <div className={classes.exploreContainer}>
+          <Button className={classes.exploreButton}>Getting Started</Button>
         </div>
-        <div className={classes.accordionContainer}>
-            <Accordion  collapses={collapses}/>
-        </div>
-        <Link href='/platform' >
-          <div className={classes.exploreContainer}>
-            <Button className={classes.exploreButton}>Getting Started</Button>
-          </div>
-        </Link>
+      </Link>
     </div>
   );
 };
