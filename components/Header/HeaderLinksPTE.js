@@ -35,7 +35,7 @@ export default function HeaderLinksPTE(props) {
     },
     headCenter: {
       [theme.breakpoints.up("lg")]: {
-        margin: "0 100px",
+        margin: "0 90px",
       },
     },
   });
@@ -78,167 +78,6 @@ export default function HeaderLinksPTE(props) {
             </Button>
             </a>
           </ListItem>
-          {/* <ListItem className={classes.listItem}>
-            <CustomDropdown
-              noLiPadding
-              navDropdown
-              hoverColor="warning"
-              buttonText="PTE Course"
-              buttonProps={{
-                className: classes.navLink,
-                color: "transparent",
-              }}
-              dropdownList={[
-                <a
-                  className={classes.dropdownLink}
-                  href="https://course.ptemagicpractice.com/express"
-                  target="_blank"
-                >
-                  Video Course
-                </a>,
-                <a
-                  className={classes.dropdownLink}
-                  href="https://offer.ptemagicpractice.com/ebook"
-                  target="_blank"
-                >
-                  Ebook
-                </a>,
-                <a
-                  className={classes.dropdownLink}
-                  href="https://ptemagic.com.au/online-pte-training-courses/"
-                  target="_blank"
-                  rel="nofollow"
-                >
-                  Online Training Course
-                </a>
-              ]}
-            />
-          </ListItem> */}
-          {/* <ListItem className={classes.listItem}>
-            <a
-              className={classes.blankLink}
-              href="https://course.ptemagicpractice.com/express"
-              target="_blank"
-            >
-              <Button className={classes.navLink} color="transparent">
-
-              </Button>
-            </a>
-          </ListItem> */}
-          {/* <ListItem className={classes.listItem}>
-            <CustomDropdown
-              noLiPadding
-              navDropdown
-              hoverColor="warning"
-              buttonText="Getting Started"
-              buttonProps={{
-                className: classes.navLink,
-                color: "transparent",
-              }}
-              dropdownList={[
-                <Link href="/how-to-use-pte-magic-platform">
-                  <a className={classes.dropdownLink}>
-                    {" "}
-                    How To Use PTE MAGIC Platform
-                  </a>
-                </Link>,
-                <Link href="/5-mistakes-to-avoid-in-pte-speaking">
-                  <a className={classes.dropdownLink}>
-                    {" "}
-                    5 mistakes to avoid in PTE Speaking
-                  </a>
-                </Link>,
-                <Link href="/about-us">
-                  <a className={classes.dropdownLink}> About Us</a>
-                </Link>,
-                <Link href="/faqs">
-                  <a className={classes.dropdownLink}> FAQs</a>
-                </Link>,
-              ]}
-            />
-          </ListItem> */}
-          {/* <ListItem className={classes.listItem}>
-            <CustomDropdown
-              noLiPadding
-              navDropdown
-              hoverColor="warning"
-              buttonText="PTE Practice Test"
-              buttonProps={{
-                className: classes.navLink,
-                color: "transparent",
-              }}
-              dropdownList={[
-                // <Link href="/practice-tests/tips">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Test Tips
-                //   </a>
-                // </Link>,
-                // <Link href="/practice-trial">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Trial
-                //   </a>
-                // </Link>,
-                // <Link href="/practice-tests/speaking">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Test Speaking
-                //   </a>
-                // </Link>,
-                // <Link href="/practice-tests/reading">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Test Reading
-                //   </a>
-                // </Link>,
-                // <Link href="/practice-tests/listening">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Test Listening
-                //   </a>
-                // </Link>,
-                // <Link href="/practice-tests/writing">
-                //   <a className={classes.dropdownLink}>
-                //     {" "}
-                //     PTE Practice Test Writing
-                //   </a>
-                // </Link>,
-              ]}
-            />
-          </ListItem> */}
-
-          {/* <ListItem className={classes.listItem}>
-            <CustomDropdown
-              noLiPadding
-              navDropdown
-              hoverColor="warning"
-              buttonText="Games"
-              buttonProps={{
-                className: classes.navLink,
-                color: "transparent",
-              }}
-              dropdownList={[
-                <Link href="/shuffle-card">
-                  <a className={classes.dropdownLink}> Shuffle Cards</a>
-                </Link>,
-                <Link href="/game-flip-card">
-                  <a className={classes.dropdownLink}> Flip Cards</a>
-                </Link>,
-                <Link href="/hang-man">
-                <a className={classes.dropdownLink}> Hang Man</a>
-              </Link>,
-              ]}
-            />
-          </ListItem> */}
-          {/* <ListItem className={classes.listItem}>
-            <Button
-              className={classes.navLink}
-              color="transparent"
-            >
-              <Link href="/#"> Question Sample</Link>
-            </Button>
-          </ListItem> */}
           <ListItem className={classes.listItem}>
             <Button
               className={classes.navLink}
@@ -256,7 +95,7 @@ export default function HeaderLinksPTE(props) {
               <Link href="/#"> Blog</Link>
             </Button>
           </ListItem>
-          {/* <ListItem className={classes.listItem}>
+          <ListItem className={classes.listItem}>
             <Button
               className={classes.navLink}
               onClick={(e) => e.preventDefault()}
@@ -264,8 +103,7 @@ export default function HeaderLinksPTE(props) {
             >
               <Link href="/contact-us"> Contact Us</Link>
             </Button>
-          </ListItem> */}
-
+          </ListItem>
         </div>
         <div className={classes.signInArea}>
           <ListItem className={classes.listItem}>
