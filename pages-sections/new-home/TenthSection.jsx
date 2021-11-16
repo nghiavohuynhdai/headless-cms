@@ -8,7 +8,7 @@ import Link from "next/link";
 const useStyles = makeStyles(theme =>({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     marginBottom: 120,
     textAlign: "center",
     maxWidth: "1140px",

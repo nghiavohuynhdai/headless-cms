@@ -2,8 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import handleData from "../../lib/handleData";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "1140px",
     width: "100%",
@@ -72,15 +73,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FirstSection = () => {
+const FirstSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks;
+  const blockList = handleData(data)
+
   return (
     <div className={classes.root}>
-      <div>
+      {/* <div>
         <h1>PTE Academic preparation</h1>
         <h1>made easier for you</h1>
         <h2>Over 120,000 students have joined PTE Magic to study without the barriers of cost or location</h2>
-      </div>
+      </div> */}
+      {blockList[0]}
       <div className={classes.signUpContainer}>
         <Link href="/platform/">  
           <Button className={classes.signUpButton}>GET STARTED</Button>

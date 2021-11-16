@@ -8,24 +8,26 @@ import answer from "../../assets/img/new-home/real-answer.png";
 import scoring from "../../assets/img/new-home/AI-Scoring.png";
 import coaching from "../../assets/img/new-home/PTE-coaching.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
+import handleData from "../../lib/handleData";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   ...teamsStyle,
   root: {
-    marginTop: 120,
+    marginTop: 100,
     [theme.breakpoints.down("sm")]: {
-      marginTop: 50
-  },
+      marginTop: 50,
+    },
   },
   sectionHeader: {
     marginBottom: 100,
     display: "flex",
     flexDirection: "column",
+    textAlign: "center",
     alignItems: "center",
     justifyContent: "center",
     [theme.breakpoints.down("sm")]: {
-      marginBottom: 60
-  },
+      marginBottom: 60,
+    },
     "& img": {
       maxWidth: 550,
       width: "100%",
@@ -102,21 +104,71 @@ const useStyles = makeStyles(theme => ({
       lineHeight: 1.88,
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "0px 0px 50px"
-  },
+      margin: "0px 0px 50px",
+    },
   },
 }));
 
-const FifthSection = () => {
+const FifthSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks;
+  /* let gridList = [];
+  for (let i in data) {
+    if (data[i].name == "core/columns") {
+      gridList = data[i].innerBlocks.map((block) => {
+        let columnList = block.innerBlocks.map((element) => {
+          if (element.name == "core/image") {
+            return (
+              <img src={element.attributes.url} alt={element.attributes.alt} />
+            );
+          } else {
+            return (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: element.saveContent,
+                }}
+              ></div>
+            );
+          }
+        });
+        return (
+          <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
+            {columnList}
+          </Grid>
+        );
+      });
+    }
+  } */
+  const blockList = data.map((block) => {
+    if (block.name == "core/group") {
+      return handleData(block.innerBlocks);
+    } else if (block.name == "core/columns") {
+      const columns = block.innerBlocks.map((column) => {
+        return (
+          <Grid item xs={12} md={4} sm={6} className={classes.gridItem}>
+            {handleData(column.innerBlocks)}
+          </Grid>
+        );
+      });
+      return columns;
+    }
+  });
+
   return (
     <div className={`${classes.root} ${classes.container}`}>
-      <div className={classes.sectionHeader}>
+      {/* <div className={classes.sectionHeader}>
         <h2>TOP-NOTCH FEATURES</h2>
         <h3>to help you succeed with PTE Academic</h3>
-      </div>
+      </div> */}
+      {/* <div
+        className={classes.sectionHeader}
+        dangerouslySetInnerHTML={{
+          __html: data[0].saveContent,
+        }}
+      ></div> */}
+      <div className={classes.sectionHeader}>{blockList[0]}</div>
       <Grid container>
-        <Grid item xs={12} sm={6} md={4} className={classes.gridItem}>
+        {/* <Grid item xs={12} sm={6} md={4} className={classes.gridItem}>
           <img src={template} alt="light" />
           <div>
             <h4>Essential PTE templates</h4>
@@ -175,7 +227,8 @@ const FifthSection = () => {
               Express Video course which covers all essential strategies
             </p>
           </div>
-        </Grid>
+        </Grid> */}
+        {blockList[1]}
       </Grid>
     </div>
   );

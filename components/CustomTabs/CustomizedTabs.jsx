@@ -50,9 +50,9 @@ export default function CustomizedTabs(props) {
         aria-label="styled tabs example"
         centered
       >
-        <StyledTab label="Dashboard" />
-        <StyledTab label="Question Banks" />
-        <StyledTab label="Mock Test" />
+        <StyledTab label={props.data[0].attributes.content} />
+        <StyledTab label={props.data[1].attributes.content} />
+        <StyledTab label={props.data[2].attributes.content} />
       </StyledTabs>
     </div>
   );

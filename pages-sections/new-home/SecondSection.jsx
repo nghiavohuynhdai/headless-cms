@@ -2,10 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import platform from "assets/img/new-home/platformimage.png";
+import platform from "assets/img/new-home/platformImage.jpg";
 import laptopFrame from "assets/img/new-home/laptop-frame.png";
+import ScrollAnimation from "react-animate-on-scroll";
 
-const useStyles = makeStyles(theme =>({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 40,
     textAlign: "center",
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme =>({
     width: "100%",
     margin: "0 auto",
     [theme.breakpoints.down("sm")]: {
-      padding: "0 30px"
+      padding: "0 30px",
     },
   },
   cardContent: {
@@ -80,8 +81,10 @@ const SecondSection = () => {
   return (
     <div className={classes.root}>
       <div className={classes.laptop}>
-        <img src={laptopFrame} alt="macbook" />
-        <div className={classes.innerImage}></div>
+        <ScrollAnimation animateIn="fadeIn" duration={1.5}>
+          <img src={laptopFrame} alt="macbook" />
+          <div className={classes.innerImage}></div>
+        </ScrollAnimation>
       </div>
     </div>
   );
