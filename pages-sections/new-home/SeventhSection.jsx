@@ -5,6 +5,7 @@ import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSection
 import { Grid } from "@material-ui/core";
 import logoclient from "../../assets/img/new-home/logoclients.png";
 import Link from "next/link";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
@@ -76,33 +77,57 @@ const useStyles = makeStyles(theme => ({
   },
   innerContent: {
     padding: "0 15px",
-    "& h3": {
-      fontSize: "48px",
-      fontWeight: 400,
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "26px"
-      },
-    },
-    "& p": {
-      fontSize: "16px",
-      fontWeight: 400,
-      marginBottom: 33,
+    // "& h3": {
+    //   fontSize: "48px",
+    //   fontWeight: 400,
+    //   [theme.breakpoints.down("sm")]: {
+    //     fontSize: "26px"
+    //   },
+    // },
+    // "& p": {
+    //   fontSize: "16px",
+    //   fontWeight: 400,
+    //   marginBottom: 33,
+    // },
+  },
+  styleHeading: {
+    fontSize: "48px",
+    fontWeight: '400 !important',
+    [theme.breakpoints.down("sm")]: {
+       fontSize: "26px",
     },
   },
+  //   fontSize: "48px",
+  //   fontWeight: 400,
+  //   [theme.breakpoints.down("sm")]: {
+  //     fontSize: "26px",
+  // },
 }));
 
 const SeventhSection = (props) => {
   const classes = useStyles();
+  console.log(props.data);
+  const url = props.data.innerBlocks[0].innerBlocks[0].innerBlocks[0].attributes.url;
+  console.log(props.data.innerBlocks[0].innerBlocks[1].innerBlocks);
+  //  props.data.innerBlocks[0].innerBlocks[1].innerBlocks[1].saveContent}
+  const heading = props.data.innerBlocks[0].innerBlocks[1].innerBlocks[0];
+  const text = props.data.innerBlocks[0].innerBlocks[1].innerBlocks[1];
   return (
     <div className={classes.root}>
       <div className={`${classes.container} ${classes.sectionContent}`}>
-        <img className={classes.imageLogos} src={logoclient} alt="logoclient" />
+        <img className={classes.imageLogos} src={url} alt="logoclient" />
         <div className={classes.innerContent}>
           {/* <h3>Start your stress-free PTE preparation today.</h3>
           <p>
             You are just one step closer to your dream. Master PTE with this powerful tool.
           </p> */}
-          {handleData(data[0].innerBlocks)}
+{/*           
+          {handleData(props.data.innerBlocks[0].innerBlocks[1].innerBlocks)} */}
+           <div 
+           dangerouslySetInnerHTML={{ __html: heading.saveContent,}} 
+           className = {classes.styleHeading}></div>
+
+           <div dangerouslySetInnerHTML={{ __html: text.saveContent,}}></div>
           <Link href='/platform' >
             <Button className={classes.signUpButton}>Get Started</Button>
           </Link>
