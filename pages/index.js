@@ -24,6 +24,6 @@ export async function getStaticProps() {
     props: {
       posts: json.data.posts.nodes,
     },
-    // revalidate: 10,
+    revalidate: 10,
   };
 }
