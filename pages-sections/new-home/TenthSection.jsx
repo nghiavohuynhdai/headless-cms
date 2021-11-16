@@ -4,6 +4,7 @@ import logo from "../../assets/img/new-home/slack-logo.png";
 import Button from "@material-ui/core/Button";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
 import Link from "next/link";
+import handleData from "../../lib/handleData";
 
 const useStyles = makeStyles(theme =>({
   ...teamsStyle,
@@ -103,17 +104,20 @@ const useStyles = makeStyles(theme =>({
   },
 }));
 
-const TenthSection = () => {
+const TenthSection = (props) => {
   const classes = useStyles();
+  const data = props.data.innerBlocks;
+  const blockList = data.map(block => {return handleData(block.innerBlocks)})
   return (
     <div className={classes.root}>
-        <div className={classes.sectionHeader}>
-            {/* <img src={logo} alt="logo-slack" /> */}
+        {/* <div className={classes.sectionHeader}>
+            <img src={logo} alt="logo-slack" />
             <h1>Begin your PTE practice today</h1>
             <h2>Want to access to some of the material we cover in class without signing up for a full course?
               We offer mock tests and other PTE exam tips and material on our site.
             </h2>
-        </div>
+        </div> */}
+        <div className={classes.sectionHeader}>{blockList[0]}</div>
         
         <div className={classes.buttonContainer}>
         <Link href='/platform' >
