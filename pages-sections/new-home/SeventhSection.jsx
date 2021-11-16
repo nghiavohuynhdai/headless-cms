@@ -10,7 +10,7 @@ import handleData from "../../lib/handleData";
 const useStyles = makeStyles(theme => ({
   ...teamsStyle,
   root: {
-    padding: "100px 0px",
+    padding: "120px 0px",
     backgroundColor: "rgb(246, 251, 249)",
     backgroundImage:
       "url(https://react-next-landing.redq.io/_next/static/images/map-18b073154fe6a34a0819d1c79f404288.png)",
@@ -77,58 +77,42 @@ const useStyles = makeStyles(theme => ({
   },
   innerContent: {
     padding: "0 15px",
-    // "& h3": {
-    //   fontSize: "48px",
-    //   fontWeight: 400,
-    //   [theme.breakpoints.down("sm")]: {
-    //     fontSize: "26px"
-    //   },
-    // },
-    // "& p": {
-    //   fontSize: "16px",
-    //   fontWeight: 400,
-    //   marginBottom: 33,
-    // },
-  },
-  styleHeading: {
-    fontSize: "48px",
-    fontWeight: '400 !important',
-    [theme.breakpoints.down("sm")]: {
-       fontSize: "26px",
+    "& h3": {
+      fontSize: "48px",
+      fontWeight: 400,
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "26px"
+      },
+    },
+    "& p": {
+      fontSize: "16px",
+      fontWeight: 400,
+      marginBottom: 33,
     },
   },
-  //   fontSize: "48px",
-  //   fontWeight: 400,
-  //   [theme.breakpoints.down("sm")]: {
-  //     fontSize: "26px",
-  // },
 }));
 
 const SeventhSection = (props) => {
   const classes = useStyles();
-  console.log(props.data);
-  const url = props.data.innerBlocks[0].innerBlocks[0].innerBlocks[0].attributes.url;
-  console.log(props.data.innerBlocks[0].innerBlocks[1].innerBlocks);
-  //  props.data.innerBlocks[0].innerBlocks[1].innerBlocks[1].saveContent}
-  const heading = props.data.innerBlocks[0].innerBlocks[1].innerBlocks[0];
-  const text = props.data.innerBlocks[0].innerBlocks[1].innerBlocks[1];
+  const data = props.data.innerBlocks[0];
+  const imageList = data.innerBlocks[0].innerBlocks;
+  const contentList = handleData(data.innerBlocks[1].innerBlocks)
+
   return (
     <div className={classes.root}>
       <div className={`${classes.container} ${classes.sectionContent}`}>
-        <img className={classes.imageLogos} src={url} alt="logoclient" />
+        <img
+          className={classes.imageLogos}
+          src={imageList[0].attributes.url}
+          alt={imageList[0].attributes.url}
+        />
         <div className={classes.innerContent}>
           {/* <h3>Start your stress-free PTE preparation today.</h3>
           <p>
             You are just one step closer to your dream. Master PTE with this powerful tool.
           </p> */}
-{/*           
-          {handleData(props.data.innerBlocks[0].innerBlocks[1].innerBlocks)} */}
-           <div 
-           dangerouslySetInnerHTML={{ __html: heading.saveContent,}} 
-           className = {classes.styleHeading}></div>
-
-           <div dangerouslySetInnerHTML={{ __html: text.saveContent,}}></div>
-          <Link href='/platform' >
+          {contentList}
+          <Link href="/platform">
             <Button className={classes.signUpButton}>Get Started</Button>
           </Link>
         </div>
