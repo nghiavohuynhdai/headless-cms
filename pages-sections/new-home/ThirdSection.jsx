@@ -7,13 +7,13 @@ import feature3 from "../../assets/img/new-home/Self-study-with-AI.png";
 import teamsStyle from "assets/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle";
 import handleData from "../../lib/handleData";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   ...teamsStyle,
   root: {
     marginTop: 100,
     [theme.breakpoints.down("sm")]: {
       marginTop: 60,
-      padding: "0px 30px",
+      padding: "0px 30px"
     },
   },
   sectionHeader: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
-      marginBottom: 40,
+      marginBottom: 40
     },
     "& h2": {
       textTransform: "uppercase",
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 5,
       lineHeight: 1.67,
       [theme.breakpoints.down("sm")]: {
-        fontSize: 20,
+        fontSize: 20
       },
     },
   },
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "16px",
     },
     [theme.breakpoints.down("sm")]: {
-      padding: 0,
+      padding: 0
     },
   },
 }));

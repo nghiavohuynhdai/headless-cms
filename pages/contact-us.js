@@ -23,6 +23,7 @@ import Banner from "components/Parallax/Banner.js";
 import logo from "assets/img/New-pte-magic-logo-1.png";
 import HeaderLinksPTE from "components/Header/HeaderLinksPTE";
 import PTEFooter from "components/Footer/PTEFooter";
+import Link from "next/link";
 
 const styles = (theme) => ({
   ...contactUsStyle,
@@ -34,6 +35,7 @@ const styles = (theme) => ({
   contactInfo: {
     display: "flex",
     position: "relative",
+    flexDirection: "column",
   },
   infoTitle: {
     color: "#ffffff",
@@ -42,20 +44,32 @@ const styles = (theme) => ({
   infoSection: {
     padding: "16px",
     display: "flex",
+    "& span": {
+      color: "#000000",
+      fontWeight: 500,
+    },
+    "& a": {
+      "&:hover": {
+        color: "#218bff",
+      },
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+    },
   },
   infoDetail: {
     marginLeft: "15px",
-    color: "#eeee22",
+    color: "#218bff",
+    fontWeight: 500,
   },
   blackCard: {
     backgroundColor: "#364547",
     [theme.breakpoints.up("sm")]: {
-      height: "100%",
+      height: "300px",
       width: "100%",
     },
-    [theme.breakpoints.up("md")]: {
-      height: "80%",
-    },
+    // height: "400px"
   },
   contactBtn: {
     backgroundColor: "#000000",
@@ -66,6 +80,7 @@ const styles = (theme) => ({
     justifyContent: "space-between",
   },
   pinIcon: {
+    padding: "20px",
     width: "10%",
     height: "10%",
   },
@@ -78,6 +93,15 @@ const styles = (theme) => ({
   bannerHead: {
     "&>div>div>div>h1": {
       fontWeight: 700,
+    },
+  },
+  containerContacts: {
+    justifyContent: "center",
+    margin: "50px auto",
+    height: "380px !important",
+    overflow: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      height: "auto !important",
     },
   },
 });
@@ -114,93 +138,49 @@ export default function ContactUsPage() {
         className={classes.bannerHead}
       />
       <div className={classNames(classes.main)}>
-        <div className={classes.contactContent}>
-          <div className={classes.container}>
-            <h2 className={classes.title}>Send us a message</h2>
-            <GridContainer className={classes.contactContainer}>
-              <GridItem md={6} sm={12}>
-                <p>
-                  You can contact us with anything related to our Products. We
-                  {"'"}ll get in touch with you as soon as possible.
-                  <br />
-                  <br />
-                </p>
-                <form>
-                  <CustomInput
-                    labelText="Your Name"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Email address"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Phone"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Your message"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 6,
-                    }}
-                  />
-                  <div className={classes.textCenter}>
-                    <Button
-                      className={classes.contactBtn}
-                      color="#000000"
-                      round
-                    >
-                      Contact us
-                    </Button>
-                  </div>
-                </form>
-              </GridItem>
-              <GridItem md={6} sm={12} className={classes.contactInfo}>
-                <div className={classes.blackCard}>
-                  <div className={classes.infoHead}>
-                    <h2 className={`${classes.title} ${classes.infoTitle}`}>
-                      {" "}
-                      Info{" "}
-                    </h2>
-                    <PinIcon className={classes.pinIcon} />
-                  </div>
-                  <div className={classes.infoSection}>
-                    <MailIcon />
-                    <p className={classes.infoDetail}> email@mail.com</p>
-                  </div>
-                  <div className={classes.infoSection}>
-                    <PhoneIcon />
-                    <p className={classes.infoDetail}> +1 234-567-890</p>
-                  </div>
-                  <div className={classes.infoSection}>
-                    <AddressIcon />
-                    <p className={classes.infoDetail}>
-                      {" "}
-                      Bld Mihail Kogalniceanu, nr. 8, 7652 Bucharest, Romania
-                    </p>
-                  </div>
-                  <div className={classes.infoSection}>
-                    <ClockIcon />
-                    <p className={classes.infoDetail}> 9:00 am - 6:00 pm</p>
-                  </div>
-                </div>
-              </GridItem>
-            </GridContainer>
-          </div>
+        <div className={`${classes.container} ${classes.containerContacts}`}>
+          <h2 className={classes.title} style={{ paddingLeft: 12 }}>
+            Send us a message
+          </h2>
+          <GridContainer className={classes.contactContainer}>
+            <GridItem md={12} sm={12} className={classes.contactInfo}>
+              <h2
+                className={classes.title}
+                style={{ paddingLeft: 12, fontSize: 25 }}
+              >
+                Contact Information
+              </h2>
+              <div className={classes.infoSection}>
+                <span>PTE Magic IT Support:</span>&nbsp;
+                <a href="/#" className={classes.infoDetail}>
+                  {" "}
+                  info@ptemagic.com.au
+                </a>
+              </div>
+              <div className={classes.infoSection}>
+                <span>PTE Magic Vietnamese Coaching: </span>
+                &nbsp;
+                <a href="/#" className={classes.infoDetail}>
+                  {" "}
+                  www.ptemagic.com.vn
+                </a>
+                <a href="/#" className={classes.infoDetail}>
+                  {" "}
+                  ptemagic@gmail.com{" "}
+                </a>
+              </div>
+              <div className={classes.infoSection}>
+                <span>PTE Magic IT Support:</span>&nbsp;
+                <a href="/#" className={classes.infoDetail}>
+                  www.ptemagic.com.au
+                </a>
+                <a href="/#" className={classes.infoDetail}>
+                  {" "}
+                  admission@ptemagic.com.au{" "}
+                </a>
+              </div>
+            </GridItem>
+          </GridContainer>
         </div>
       </div>
       <PTEFooter />

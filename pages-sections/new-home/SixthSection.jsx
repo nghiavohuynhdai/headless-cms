@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   sectionHeader: {
     display: "flex",
     flexDirection: "column",
-    alignItem: "center",
+    textAlign: "center",
     justifyContent: "center",
     "& img": {
       maxWidth: 400,

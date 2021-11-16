@@ -1,5 +1,5 @@
 # Base on offical Node.js Alpine image
-FROM node:12-alpine
+FROM node:14-alpine
 # RUN apk add --update \
 #   git \
 #   openssh-client
