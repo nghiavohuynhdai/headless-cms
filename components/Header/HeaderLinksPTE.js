@@ -92,7 +92,7 @@ export default function HeaderLinksPTE(props) {
               onClick={(e) => e.preventDefault()}
               color="transparent"
             >
-              <Link href="/#"> Blog</Link>
+              <Link href='/blogs'> Blog</Link>
             </Button>
           </ListItem>
           <ListItem className={classes.listItem}>

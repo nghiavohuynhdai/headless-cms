@@ -3,16 +3,16 @@ import Router from "next/router";
 import Home from "./home";
 import { getHomePageAPI } from "../lib/api";
 
-export default function Index({ posts }) {
+export default function Index({ pages }) {
   // componentDidMount = () => {
   //   Router.push("/home");
   // };
 
   let i = 0;
-  while (posts[i].title != "Home Page") {
+  while (pages[i].title != "Home Page") {
     i++;
   }
-  const blocksJson = JSON.parse(posts[i].blocksJSON);
+  const blocksJson = JSON.parse(pages[i].blocksJSON);
 
   return <Home data={blocksJson} />;
 }
@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: json.data.posts.nodes,
+      pages: json.data.pages.nodes,
     },
     revalidate: 10,
   };
