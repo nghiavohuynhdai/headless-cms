@@ -8,6 +8,7 @@ import HeaderLinksPTE from "../../components/Header/HeaderLinksPTE";
 import Head from "next/head";
 import PTEFooter from "../../components/Footer/PTEFooter";
 import { getBlogsAPI } from "../../lib/api";
+import Section1 from "./blogs-section/Section1";
 
 const useStyles = makeStyles({
   ...teamsStyle,
@@ -29,7 +30,9 @@ const useStyles = makeStyles({
 export default function HomePage({ posts }) {
   // const data = JSON.parse(posts[0].blocksJSON);
   const classes = useStyles();
-  console.log(posts)
+  console.log(posts);
+
+  const latestPosts = posts.length > 5 ? posts.slice(5) : posts
 
   return (
     <div className={classes.root}>
@@ -78,8 +81,8 @@ export default function HomePage({ posts }) {
         />
       </div>
       <section>
-
-      </section>  
+        <Section1 data={latestPosts} />
+      </section>
       <PTEFooter />
     </div>
   );
